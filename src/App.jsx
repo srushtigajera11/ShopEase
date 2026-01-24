@@ -3,7 +3,6 @@ import './App.css'
 import { Routes,Route } from 'react-router-dom'
 import Stateeg1 from './components/Stateeg1'
 import Refeg from './components/Refeg'
-
 function App() {
   const [bgcolor,setbgcolor] = useState('skyblue')
   const [color,setcolor]=useState('black')
@@ -19,11 +18,9 @@ function App() {
         <input type="button" value="A" className='w-15'
         onClick={()=>changeTheme('skyblue','black')}
          style={{backgroundColor:'skyblue',color:'black'}}  />
-
         <input type="button" value="A" className='w-15'
   onClick={()=>changeTheme('yellow','black')}
         style={{backgroundColor:'yellow',color:'black'}}  />
-
         <input type="button" value="A"  className='w-15'
           onClick={()=>changeTheme('blue','white')}
         style={{backgroundColor:'blue',color:'white'}} />
