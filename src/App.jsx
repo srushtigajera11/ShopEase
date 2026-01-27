@@ -5,6 +5,8 @@ import Stateeg1 from './components/Stateeg1'
 import Refeg from './components/Refeg'
 import Effect from './components/Effect'
 import Home from './components/Home'
+import Categories from './components/Categories'
+import Products from './components/Products'
 function App() {
   const [bgcolor,setbgcolor] = useState('skyblue')
   const [color,setcolor]=useState('black')
@@ -33,10 +35,13 @@ function App() {
       </div>
 <h1>hooks in react</h1>
 <Routes>
-  <Route path='/' element={<Stateeg1></Stateeg1>}></Route>
+  <Route path='/' element={<Categories></Categories>}></Route>
+  <Route path="/products/:cname" element={<Products></Products>}></Route>
+  {/* <Route path='/' element={<Stateeg1></Stateeg1>}></Route>
   <Route path='/ref' element={<Refeg></Refeg>}></Route>
   <Route path='/effect' element={<Effect></Effect>}></Route>
-  <Route path='/home' element={<Home></Home>}></Route>
+  <Route path='/home' element={<Home></Home>}></Route> */}
+  
 </Routes>
 </div>
   </>

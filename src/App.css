@@ -1,6 +1,6 @@
  .main {
   max-width: 1280px;
-  height: 100dvh;
+  
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -10,6 +10,7 @@
   height:30px;
   width:30px;
 }
+
 /*
 .logo {
   height: 6em;
