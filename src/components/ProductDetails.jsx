@@ -23,7 +23,7 @@ console.log(similer_Products)
 
  let similer_Products_ui = similer_Products.map((p)=>
     {
-      return  <div key= {p.id} className='w-1/4 flex justify-center items-center text-center flex-col'>
+      return  <div key= {p.id} className='w-1/4 flex justify-center items-center flex-col'>
         <img src={p.thumbnail} alt="" className='w-4/5 aspect-square' />
         <div className='text-lg'>{p.title}</div>
         <div>${p.price}</div>
@@ -40,14 +40,24 @@ console.log(similer_Products)
     {/* <img src={product.thumbnail} className='w-4/5 aspect square' alt="" /> */}
     <Imagegallery imgary={product.images}></Imagegallery>
       </div>
-      <div className='w-1/2'>
-      {product.title}
-      <br />
-     $ {product.price}
+      <div className='w-1/2 text-left flex-col gap-4'>
+      <div className='font-bold'>{product.title}</div>
+      <div>
+     <del className='text-red-500'>$ {product.price}</del> 
+     <span className='text-blue-500'> {product.discountPercentage}% off</span>
+     <br />
+     ${Math.round((product.price-(product.price*product.discountPercentage/100)) *100) / 100}
+     </div>
+  <div className='text-xs'>
+    {product.description}</div>      
       
-
+      <div className=''>
+        Brand: {product.brand}
       </div>
-
+      <div>
+      tags:   {(product.tags).map((p)=>p).join(",")}
+      </div>
+</div>
     </div>
     <div className='text-lg text-black underline'>
       Products you make like :

@@ -10,13 +10,14 @@ import Products from './components/Products'
 import ProductDetails from './components/ProductDetails'
 import { useLocation } from 'react-router-dom';
 import sideimg from "./assets/sideimg.jpg"
+import clr from "./assets/clr.webp"
 function App() {
    const location = useLocation();
   const currentPath = location.pathname
   // console.log(currentPath)
   const [bgcolor,setbgcolor] = useState('')
   const [color,setcolor]=useState('black')
-  let leftui = currentPath=="/"?<img src={sideimg} className='w-full h-[100dvh]'></img>   :<Categories direction="bottom"></Categories>
+  let leftui = currentPath=="/"?<><img src={clr} className='w-full aspect-square' /><img src={sideimg} className='w-full h-[100dvh]'></img></>   :<Categories direction="bottom"></Categories>
   let changeTheme =(bgcolor,color)=>
   {
     setbgcolor(bgcolor)
