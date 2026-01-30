@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
-
-export default function Imagegallery(props) {
-    let imgref = useRef()
+export default function ImageGallery(props) {
+ let imgref = useRef()
     let imgary = props.imgary;
     console.log(imgary)
     let imagesui = imgary.map((img)=><img src={img} className='w-12 h-12 '
