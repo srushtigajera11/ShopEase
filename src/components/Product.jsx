@@ -1,6 +1,7 @@
 import React from "react";
 import { productsary } from "./productData";
 import { useParams, Link } from "react-router-dom";
+import Rating from "./Rating";
 
 export default function Products() {
   const { cname } = useParams();
@@ -46,10 +47,12 @@ export default function Products() {
               ${p.price}
             </p>
 
+
             {/* Rating */}
-            <div className="text-yellow-400 text-sm mt-1">
+            <Rating rating={p.rating}></Rating>
+            {/* <div className="text-yellow-400 text-sm mt-1">
               ⭐ {p.rating}
-            </div>
+            </div> */}
 
           </Link>
         ))}

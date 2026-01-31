@@ -11,7 +11,8 @@ import Footer from './components/Footer';
 import { useLocation } from 'react-router-dom';
 import imga from './assets/sale.png'
 import AllProducts from './components/AllProducts';
-
+import { DemoContext } from './components/contexteg/DemoContext';
+import Home from './components/contexteg/Home';
 
 function App() {
   const location = useLocation();
@@ -19,7 +20,10 @@ function App() {
   let leftUi = currentPath == '/' ? <img className='w-full h-[65vh] rounded-lg mt-5' src={imga}  alt="" />  : <Categories direction="bottom"></Categories>
   return (
     <>
-    
+    <DemoContext.Provider value={{name:"Raman"}}>
+<Home></Home>
+
+    </DemoContext.Provider>
     <Navbar />  
     <div className='flex'>
         <div className='w-1/6'>
