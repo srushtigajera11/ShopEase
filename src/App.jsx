@@ -11,15 +11,28 @@ import Footer from './components/Footer';
 import { useLocation } from 'react-router-dom';
 import imga from './assets/sale.png'
 import AllProducts from './components/AllProducts';
+import { DemoContext } from './components/contex/Demo';
+import { useState } from 'react';
+import Home from './components/contex/Home';
+
 
 
 function App() {
   const location = useLocation();
   const currentPath = location.pathname
+  const [username,setusername] = useState("")
+  const [islogin,setislogin] =  useState(false)
   let leftUi = currentPath == '/' ? <img className='w-full h-[65vh] rounded-lg mt-5' src={imga}  alt="" />  : <Categories direction="bottom"></Categories>
   return (
     <>
-    
+      <DemoContext.Provider value={{username:username,
+      setusername:setusername,
+      islogin:islogin,
+      setislogin:setislogin
+    }}>
+<Home></Home>
+
+    </DemoContext.Provider>
     <Navbar />  
     <div className='flex'>
         <div className='w-1/6'>
