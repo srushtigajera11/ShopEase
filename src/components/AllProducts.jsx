@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { productsary } from './productData'
-
+import Addtocart from './Addtocart'
 export default function () {
     let ui = productsary.map((p)=>{
         return <div key={p.id} className='flex text-center mb-1.5'>
@@ -20,7 +20,7 @@ export default function () {
             <p className="text-green-600 font-bold text-lg mt-2">
               ${p.price}
             </p>
-
+<Addtocart pid={p.id}></Addtocart>
             {/* Rating */}
             {/* <div className="text-yellow-400 text-sm mt-1">
               ⭐ {Math.floor(p.rating)}

@@ -14,23 +14,18 @@ import AllProducts from './components/AllProducts';
 import { DemoContext } from './components/contexteg/DemoContext';
 import Home from './components/contexteg/Home';
 import { useState } from 'react';
+import { CartContext } from './components/CartContext';
+import Cart from './components/Cart';
 
 function App() {
   const location = useLocation();
   const currentPath = location.pathname
   let leftUi = currentPath == '/' ? <img className='w-full h-[65vh] rounded-lg mt-5' src={imga}  alt="" />  : <Categories direction="bottom"></Categories>
-  const [username,setusername] = useState("")
-  const [islogin,setislogin] =  useState(false)
+  const [cart,setcart] = useState([])
   return (
     <>
-    <DemoContext.Provider value={{username:username,
-      setusername:setusername,
-      islogin:islogin,
-      setislogin:setislogin
-    }}>
-<Home></Home>
-
-    </DemoContext.Provider>
+    <CartContext.Provider value={{cart:cart,setcart:setcart}}>
+   
     <Navbar />  
     <div className='flex'>
         <div className='w-1/6'>
@@ -40,6 +35,7 @@ function App() {
     <Routes>
     
      <Route path='/' element={<Categories direction="right"></Categories>}></Route>
+     <Route path='/cart' element={<Cart></Cart>}></Route>
       <Route path='/allProducts' element={<AllProducts />}></Route>
       <Route path='/product/:cname' element={<Product />}></Route>
        <Route path='/productDetails/:id' element={<ProductDetails />}></Route>
@@ -48,7 +44,7 @@ function App() {
      <PropsHome /> 
      <MapHome /> */}
      <Footer />
-    
+    </CartContext.Provider>
     </>
 
   )

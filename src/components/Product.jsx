@@ -2,6 +2,7 @@ import React from "react";
 import { productsary } from "./productData";
 import { useParams, Link } from "react-router-dom";
 import Rating from "./Rating";
+import Addtocart from "./Addtocart";
 
 export default function Products() {
   const { cname } = useParams();
@@ -22,10 +23,11 @@ export default function Products() {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
         {products.map((p) => (
+          <div className="bg-white rounded-xl shadow hover:shadow-lg transition p-4 group">
           <Link
             key={p.id}
             to={"/productDetails/" + p.id}
-            className="bg-white rounded-xl shadow hover:shadow-lg transition p-4 group"
+            
           >
 
             {/* Image */}
@@ -47,7 +49,6 @@ export default function Products() {
               ${p.price}
             </p>
 
-
             {/* Rating */}
             <Rating rating={p.rating}></Rating>
             {/* <div className="text-yellow-400 text-sm mt-1">
@@ -55,6 +56,9 @@ export default function Products() {
             </div> */}
 
           </Link>
+          
+<Addtocart pid={p.id}></Addtocart>
+</div>
         ))}
 
       </div>
