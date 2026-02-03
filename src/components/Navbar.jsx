@@ -1,6 +1,10 @@
 import { ShoppingCart,Search} from "lucide-react";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
+import { useContext } from "react";
 const Navbar = () => {
+  let context = useContext(CartContext)
+  let count = (context.cart).length
   return (
     <nav className="bg-slate-900 text-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -18,13 +22,15 @@ const Navbar = () => {
             <div className="hover:text-sky-400 transition">
               <Link to={"/allProducts"}>Products</Link>
           </div>
-
+<Link to="/cart">
           <button className="relative hover:text-sky-400 transition">
             <ShoppingCart size={22} />
             <span className="absolute -top-2 -right-2 bg-sky-500 text-white text-xs rounded-full px-1.5">
-              2
+              {count}
             </span>
+            
           </button>
+          </Link>
         </div>
       </div>
 

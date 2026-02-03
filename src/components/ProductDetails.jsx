@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { productsary } from "./productData";
 import ImageGallery from "./Imagegallery";
 import Rating from "./Rating";
+import Addtocart from "./Addtocart";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -67,10 +68,11 @@ export default function ProductDetails() {
 
           {/* Buttons */}
           <div className="flex gap-4">
-            <button className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg w-full">
+            {/* <button className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg w-full">
               Add to Cart
-            </button>
+            </button> */}
 
+            <Addtocart pid={product.id}></Addtocart>
             <button className="border border-sky-600 text-sky-600 px-6 py-3 rounded-lg w-full hover:bg-sky-50">
               Buy Now
             </button>
