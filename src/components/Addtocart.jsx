@@ -57,14 +57,32 @@ export default function Addtocart(props) {
         console.log(context.cart)
     }
     
-    let cartbutton = <input type="button" value="Add to Cart"
+    let cartbutton = (
+  <input
+    type="button"
+    value="Add to Cart"
     className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg w-full"
-    onClick={()=>AddItem()}/>
-    let ui = <div className="bg-sky-600 flex gap-4 hover:bg-sky-700 text-white px-6 py-3 rounded-lg w-full">
-        <input type='button' value='-' onClick={()=>setItem("-")}/>{count}
-        <input type='button' value='+'  onClick={()=>setItem("+")}/>
-    </div>
-  return (
-    <div>{count==0?cartbutton:ui}</div>
-  )
+    onClick={AddItem}
+  />
+);
+   let ui = (
+  <div className="bg-sky-600 flex gap-4 items-center justify-center hover:bg-sky-700 text-white px-6 py-3 rounded-lg w-full">
+    <input
+      type="button"
+      value="-"
+      onClick={() => setItem("-")}
+      className=" text-white text-xl rounded"
+    />
+
+    <span className="font-semibold">{count}</span>
+
+    <input
+      type="button"
+      value="+"
+      onClick={() => setItem("+")}
+      className=" text-white text-xlrounded"
+    />
+  </div>
+);
+  return <div className='mt-2'>{count === 0 ? cartbutton : ui}</div>;
 }

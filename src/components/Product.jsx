@@ -51,13 +51,8 @@ export default function Products() {
 
             {/* Rating */}
             <Rating rating={p.rating}></Rating>
-            {/* <div className="text-yellow-400 text-sm mt-1">
-              ⭐ {p.rating}
-            </div> */}
-
-          </Link>
-          
-<Addtocart pid={p.id}></Addtocart>
+          </Link>         
+      <Addtocart pid={p.id}></Addtocart>
 </div>
         ))}
 
