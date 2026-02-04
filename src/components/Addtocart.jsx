@@ -1,88 +1,52 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { CartContext } from './CartContext'
+ import React, { useContext } from "react";
+import { CartContext } from "./CartContext";
 
-export default function Addtocart(props) {
-    let pid = props.pid
-    let context = useContext(CartContext)
-    const [index,setindex] = useState(-1)
-    const [count,setcount] = useState(0)
-    useEffect(()=>
-    {
-        setindex(context.cart.findIndex((e)=>e.pid==pid))
-        if(index!=-1)
-        {
-            setcount(context.cart[index].quantity)
-        }
-    })
-    
-    const AddItem =()=>
-        {
-        context.setcart([
-    ...context.cart,
-    { pid: pid, quantity: 1 }
-  ]);
-        setindex(context.cart.findIndex((e)=>e.pid==pid))
-        setcount(1)
-         console.log(context.cart)
-    }
-    let setItem=(flag)=>
-    {
-        if(flag=="+")
-        {
-               
-               console.log(count)
-               console.log(index)
-               context.cart[index].quantity = count+1
-               setcount(count+1 )
+export default function Addtocart({ pid }) {
+  const { cart, setcart } = useContext(CartContext);
 
-        }
-        else
-        {
-            let q = context.cart[index].quantity
-            if(q==1)
-            {
-                context.cart.splice(index,1)
-                setcount(0)
-                setindex(-1)
-            }
-            else
-            {
-                 console.log(count)
-               console.log(index)
-               context.cart[index].quantity = count-1
-               setcount(count-1 )
-            }
-            
-        }
-        console.log(context.cart)
-    }
-    
-    let cartbutton = (
-  <input
-    type="button"
-    value="Add to Cart"
-    className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg w-full"
-    onClick={AddItem}
-  />
-);
-   let ui = (
-  <div className="bg-sky-600 flex gap-4 items-center justify-center hover:bg-sky-700 text-white px-6 py-3 rounded-lg w-full">
-    <input
-      type="button"
-      value="-"
-      onClick={() => setItem("-")}
-      className=" text-white text-xl rounded"
-    />
+  const item = cart.find((e) => e.pid === pid);
+  const count = item ? item.quantity : 0;
 
-    <span className="font-semibold">{count}</span>
+  const addItem = () => {
+    setcart([...cart, { pid, quantity: 1 }]);
+  };
 
-    <input
-      type="button"
-      value="+"
-      onClick={() => setItem("+")}
-      className=" text-white text-xlrounded"
-    />
-  </div>
-);
-  return <div className='mt-2'>{count === 0 ? cartbutton : ui}</div>;
+  const updateItem = (type) => {
+    setcart(
+      cart
+        .map((item) =>
+          item.pid === pid
+            ? {
+                ...item,
+                quantity:
+                  type === "+" ? item.quantity + 1 : item.quantity - 1,
+              }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
+  };
+
+  return (
+    <div className="mt-2">
+      {count === 0 ? (
+        <input
+          type="button"
+          value="Add to Cart"
+          className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg w-full"
+          onClick={addItem}
+        />
+      ) : (
+        <div className="bg-sky-600 flex gap-4 items-center justify-center hover:bg-sky-700 text-white px-6 py-3 rounded-lg w-full">
+          <button onClick={() => updateItem("-")} className="text-xl">
+            -
+          </button>
+          <span className="font-semibold">{count}</span>
+          <button onClick={() => updateItem("+")} className="text-xl">
+            +
+          </button>
+        </div>
+      )}
+    </div>
+  );
 }

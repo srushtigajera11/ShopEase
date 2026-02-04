@@ -24,14 +24,6 @@ function App() {
   return (
     <>
     <CartContext.Provider value={{cart:cart,setcart:setcart}}>
-      {/* <DemoContext.Provider value={{username:username,
-      setusername:setusername,
-      islogin:islogin,
-      setislogin:setislogin
-    }}>
-<Home></Home>
-
-    </DemoContext.Provider> */}
     <Navbar />  
     <div className='flex'>
         <div className='w-1/6'>
