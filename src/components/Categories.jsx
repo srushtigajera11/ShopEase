@@ -21,12 +21,12 @@ export default function Categories(props) {
       <div>
         <p className="text-center text-2xl font-bold my-4">Categories</p>
 
-        <div className="flex flex-col gap-3 px-20">
+        <div className="flex flex-col gap-3 ">
           {categories.map((c, i) => (
             <Link
               key={i}
               to={"/product/" + c.cname}
-              className="bg-white py-4 rounded-lg shadow hover:bg-sky-50 hover:text-sky-600 transition text-center font-medium capitalize"
+              className="bg-white p-4 rounded-lg shadow hover:bg-sky-50 hover:text-sky-600 transition text-center font-medium capitalize"
             >
               {c.cname}
             </Link>

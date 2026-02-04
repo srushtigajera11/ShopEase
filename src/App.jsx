@@ -21,17 +21,11 @@ function App() {
   const currentPath = location.pathname
  const [cart,setcart] = useState([]);
   let leftUi = currentPath == '/' ? <img className='w-full h-[65vh] rounded-lg mt-5' src={imga}  alt="" />  : <Categories direction="bottom"></Categories>
+  const [cart,setcart] = useState([])
   return (
     <>
     <CartContext.Provider value={{cart:cart,setcart:setcart}}>
-      {/* <DemoContext.Provider value={{username:username,
-      setusername:setusername,
-      islogin:islogin,
-      setislogin:setislogin
-    }}>
-<Home></Home>
-
-    </DemoContext.Provider> */}
+   
     <Navbar />  
     <div className='flex'>
         <div className='w-1/6'>
