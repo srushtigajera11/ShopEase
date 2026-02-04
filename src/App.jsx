@@ -11,10 +11,9 @@ import Footer from './components/Footer';
 import { useLocation } from 'react-router-dom';
 import imga from './assets/sale.png'
 import AllProducts from './components/AllProducts';
-import { DemoContext } from './components/contex/Demo';
 import { useState } from 'react';
 import { CartContext } from './components/CartContext';
-import Home from './components/contex/Home';
+
 import Cart from './components/Cart';
 
 function App() {
