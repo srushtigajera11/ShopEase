@@ -15,7 +15,7 @@ export default function Categories(props) {
     ).values(),
   ];
   
-  // 👉 SIDEBAR STYLE (bottom)
+
   if (direction === "bottom") {
     return (
       <div>

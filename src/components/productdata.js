@@ -1,5 +1,5 @@
 
-export const  productsary= [
+export const productsary = [
     {
       "id": 1,
       "title": "Essence Mascara Lash Princess",
